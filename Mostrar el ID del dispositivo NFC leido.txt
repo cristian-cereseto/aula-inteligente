@@ -1,0 +1,45 @@
+/**
+ * Author:     Alberto Gil Tesa
+ * WebSite:    http://giltesa.com
+ * License:    CC BY-NC-SA 3.0
+ *
+ * Description:
+ *   ARDUINO SHIELD NFC PN532 ISP
+ *
+ *   Ejemplo de uso de la shield NFC con chip PN532.
+ *   Imprime el numero de identificacion unico de la tarjeta/llavero.
+ */
+
+
+#include <PN532.h>
+
+#define SCK  13
+#define MOSI 11
+#define SS   10
+#define MISO 12
+
+PN532 nfc(SCK, MISO, MOSI, SS);
+
+
+void setup()
+{
+   Serial.begin(9600);
+   nfc.begin();
+
+   // Configura la Shield para leer etiquetas RFID:
+   nfc.SAMConfig();
+
+   Serial.println("Placa preparada para leer!");
+}
+
+
+void loop()
+{
+   uint32_t id = nfc.readPassiveTargetID(PN532_MIFARE_ISO14443A);
+
+   if( id != 0 )
+   {
+      Serial.print("ID= "); Serial.println(id);
+      delay(1000);
+   }
+}

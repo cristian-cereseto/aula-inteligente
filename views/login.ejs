@@ -1,0 +1,56 @@
+<!doctype html>
+<html class="no-js" lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aula Inteligente | Login</title>
+ <!--STYLES-->
+ <link rel="stylesheet" href="/styles/estilos-index.css">
+ <link rel="stylesheet" href="/styles/estilos-login.css">
+ <link rel="stylesheet" href="/styles/foundation.css">
+ <link rel="stylesheet" href="/styles/foundation.min.css">
+ <link rel="stylesheet" href="/styles/importer.css">
+ <link rel="stylesheet" href="/styles/normalize.css">
+ <!--STYLES END-->
+  <script src="js/vendor/modernizr.js"></script>
+</head>
+<body>
+<div class="login-container">
+  <div class="row">
+    <div class="large-4 large-centered columns small-12 logo-container">
+      <img src="images/logo-uai1.png" width="250" alt="logo-uai" class="logo-uai"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-4 large-centered columns small-12 input-group">
+      <input type="text" placeholder="Usuario" class="input-login" id="txtUsuario" required/>
+      <input type="password" placeholder="Contraseña" class="input-login" id="txtPassword" required/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-4 large-centered columns small-12">
+      <ul class="button-group round button-group--login">
+        <li>
+          <input type="button" value="Ingresar" class="button button-login btnIngresar"/>
+        </li>
+        <li>
+          <input type="button" value="Cancelar" class="button button-login btnCancelar"/>
+        </li>
+      </ul>
+      <br/>
+      <a href="/signup" class="right">No tengo una cuenta</a>
+    </div>
+  </div>
+</div>
+<!--SCRIPTS-->
+<script src="/js/dependencies/sails.io.js"></script>
+<script src="/js/dependencies/jquery.js"></script>
+<script src="/js/dependencies/modernizr.js"></script>
+<script src="/js/dependencies/foundation.min.js"></script>
+<!--SCRIPTS END-->
+<script src="js/foundation.min.js"></script>
+<script>
+  $(document).foundation();
+</script>
+</body>
+</html>

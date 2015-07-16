@@ -1,0 +1,154 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aula Inteligente | Tablero de Control</title>
+  <!--STYLES-->
+  <link rel="stylesheet" href="/styles/estilos-index.css">
+  <link rel="stylesheet" href="/styles/estilos-login.css">
+  <link rel="stylesheet" href="/styles/foundation.css">
+  <link rel="stylesheet" href="/styles/foundation.min.css">
+  <link rel="stylesheet" href="/styles/importer.css">
+  <link rel="stylesheet" href="/styles/normalize.css">
+  <!--STYLES END-->
+</head>
+<body>
+<div class="row full-width">
+  <div class="large-12 columns">
+    <div class="row logo-container">
+      <div class="large-3 columns small-12">
+        <img src="./images/logo-uai1.png" alt="logo-uai" class="logo">
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <nav class="top-bar" data-topbar>
+          <ul class="title-area">
+            <li class="name">
+              <h1>
+                <a href="#">
+                  Aula Inteligente
+                </a>
+              </h1>
+            </li>
+            <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+          </ul>
+          <section class="top-bar-section">
+            <ul class="right">
+              <li><a href="/asistencia">Asistencia</a></li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+    </div>
+    <div class="row main-container">
+      <div class="large-4 small-12 columns">
+        <div class="hide-for-small panel">
+          <img src="./images/user-icon.png">
+          <h3>Usuario: </h3>
+          <h5 class="subheader">
+            Datos de usuario
+          </h5>
+        </div>
+        <a href="#">
+          <div class="panel callout radius">
+            <label>Auto/Manual</label>
+            <div class="switch radius">
+              <input id="switchModo" type="checkbox">
+              <label for="switchModo"></label>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="large-8 columns">
+        <div class="row">
+          <div class="large-3 small-6 columns">
+            <img src="./images/lightbulb-icon.svg" alt="icono-lampara">
+            <div class="panel">
+              <h5>Luz Número 1</h5>
+              <div class="switch radius">
+                <input id="switchLuz1" type="checkbox" class="checkboxControl">
+                <label for="switchLuz1"></label>
+              </div>
+            </div>
+          </div>
+          <div class="large-3 small-6 columns">
+            <img src="./images/lightbulb-icon.svg" alt="icono-lampara">
+            <div class="panel">
+              <h5>Luz Número 2</h5>
+              <div class="switch radius">
+                <input id="switchLuz2" type="checkbox" class="checkboxControl">
+                <label for="switchLuz2"></label>
+              </div>
+            </div>
+          </div>
+          <div class="large-3 small-6 columns">
+            <img src="./images/calefaccion-white.png" alt="icono-lampara">
+            <div class="panel">
+              <h5>Calefacción</h5>
+              <div class="switch radius">
+                <input id="switchCal" type="checkbox" class="checkboxControl">
+                <label for="switchCal"></label>
+              </div>
+            </div>
+          </div>
+          <div class="large-3 small-6 columns">
+            <img src="./images/aire%20acondicionado.png" alt="icono-lampara">
+            <div class="panel">
+              <h5>Aire Acond.</h5>
+              <div class="switch radius">
+                <input id="switchAA" type="checkbox" class="checkboxControl">
+                <label for="switchAA"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <div class="panel">
+              <div class="row">
+                <div class="large-2 small-6 columns">
+                  <i class="step fi-widget size-72"></i>
+                </div>
+                <div class="large-10 small-6 columns">
+                  <strong>Tablero de Control<hr/></strong>
+                  Desde este panel se pueden controlar todos los dispositivos del aula.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="row">
+      <div class="large-12 columns"><hr/>
+        <div class="row">
+          <div class="large-6 columns">
+            <p>© Universidad Abierta Interamericana. 2015.</p>
+          </div>
+          <div class="large-6 columns">
+            <ul class="inline-list right">
+              <li><a href="#">Link 1</a></li>
+              <li><a href="#">Link 2</a></li>
+              <li><a href="#">Link 3</a></li>
+              <li><a href="#">Link 4</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+<!--SCRIPTS-->
+<script src="/js/dependencies/sails.io.js"></script>
+<script src="/js/dependencies/jquery.js"></script>
+<script src="/js/dependencies/modernizr.js"></script>
+<script src="/js/dependencies/foundation.min.js"></script>
+<!--SCRIPTS END-->
+<script>
+  $(document).foundation();
+</script>
+<script src="js/tablero-controller.js"></script>
+</body>
+</html>

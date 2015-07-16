@@ -1,0 +1,42 @@
+.row.full-width {
+	max-width: 90rem;
+	/*Original: 62.5rem*/
+}
+
+.logo {
+	height: 7.813em;
+	margin-left: 0.5em;
+}
+
+.logo-container {
+	padding: 0.5em;
+}
+
+/** Changes background color, height and margin of the border **/
+.top-bar {
+    background: #744044;
+    height: 58px;
+    line-height: 58px;
+    margin-bottom: 1.5em;
+}
+ 
+/** Removes black background on menu bar **/
+.top-bar-section ul {
+    background: #744044;
+    text-transform: uppercase;
+}
+ 
+/** Removes black background on menu item **/
+.top-bar-section li a:not(.button) {
+    background: #744044;
+    line-height: 58px;
+    padding: 0 27px;
+}
+
+.size-72 {
+	font-size: 72px;
+	margin-left: 0.5em;
+}
+
+.icono-calefaccion {
+}
