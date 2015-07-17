@@ -8,17 +8,38 @@
 module.exports = {
 
   attributes: {
-    usuario: {
-      type: 'string'
-    },
+      usuario: {
+          type: 'string'
+      },
 
-    email: {
-      type: 'email'
-    },
+      nombre: {
+          type: 'string'
+      },
 
-    password: {
-      type: 'string'
-    }
+      apellido: {
+          type: 'string'
+      },
+
+      nroLegajo: {
+          type: 'string'
+      },
+
+      asistencias: {
+          collection: 'asistencia',
+          via: 'alumno'
+      },
+
+      nroTarjeta: {
+          type: 'string'
+      },
+
+      email: {
+          type: 'email'
+      },
+
+      password: {
+          type: 'string'
+      }
   }
 };
 

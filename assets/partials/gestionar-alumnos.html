@@ -1,0 +1,83 @@
+<div>
+  <div class="row">
+    <div class="large-6 large-centered columns">
+      <h3>Gestionar Alumnos</h3>
+    </div>
+  </div>
+  <div class="row">
+    <table role="grid" class="large-9 columns large-centered">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Usuario</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Password</th>
+        <th>Email</th>
+        <th>Nro Legajo</th>
+        <th>Id Tarjeta</th>
+      </tr>
+      </thead>
+      <thead>
+      <tr>
+        <th></th>
+        <th><input type="text" id="filtro-usuario" class="filtro" placeholder="filtrar..." ng-model="filtroUsuario"></th>
+        <th><input type="text" id="filtro-nombre" class="filtro" placeholder="filtrar..." ng-model="filtroNombre"></th>
+        <th><input type="text" id="filtro-apellido" class="filtro" placeholder="filtrar..." ng-model="filtroApellido"></th>
+        <th><input type="text" id="filtro-password" class="filtro" placeholder="filtrar..." ng-model="filtroPass"></th>
+        <th><input type="text" id="filtro-email" class="filtro" placeholder="filtrar..." ng-model="filtroEmail"></th>
+        <th><input type="text" id="filtro-legajo" class="filtro" placeholder="filtrar..." ng-model="filtroLegajo"></th>
+        <th><input type="text" id="filtro-tarjeta" class="filtro" placeholder="filtrar..." ng-model="filtroTarjeta"></th>
+      </tr>
+      </thead>
+      <tbody class="tabla-body" ng-repeat="alumno in alumnos | filter: filtroAlumno">
+      <tr ng-class="{ 'selected-row': alumno.id === alumnoSeleccionado }" id="{{alumno.id}}" ng-click="selectAlumno(alumno.id)">
+        <td>{{ alumno['id'] }}</td>
+        <td>{{ alumno['usuario'] }}</td>
+        <td>{{ alumno['nombre'] }}</td>
+        <td>{{ alumno['apellido'] }}</td>
+        <td>{{ alumno['password'] }}</td>
+        <td>{{ alumno['email'] }}</td>
+        <td>{{ alumno['nroTarjeta'] }}</td>
+        <td>{{ alumno['nroLegajo'] }}</td>
+        <td>{{ alumno['asistencias'].lenght }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <div class="large-9 large-centered columns botonera-container right
+    ">
+      <!--<button ng-click="openModal()" class="button botonera-boton" id="btnCrearPlanSiembra" data-reveal-id="modal-detalles--plan-siembra">Crear</button>-->
+      <button ng-click="crearAlumno()" class="button botonera-boton" data-reveal-id="modal-detalles--alumno">Crear</button>
+      <button ng-click="modificarAlumno()" class="button botonera-boton" id="btnModificarAlumno" data-reveal-id="modal-detalles--alumno">Modificar</button>
+      <button ng-click="consultarAlumno()" class="button botonera-boton" id="btnConsultarAlumno" data-reveal-id="modal-detalles--alumno">Consultar</button>
+      <button ng-click="eliminarAlumno()" class="button botonera-boton" id="btnEliminarEmpresa">Eliminar</button>
+    </div>
+  </div>
+  <div id="modal-detalles--alumno" class="reveal-modal" data-reveal>
+    <input type="hidden" ng-model="modoForm"/>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    <div class="row">
+      <div class="large-6 large-centered columns">
+        <label>Descripcion
+          <input type="text" placeholder="Usuario" ng-model="usuario" ng-class="{'campoIncompleto': formIncompleto}" ng-disabled="disableForm" />
+          <input type="text" placeholder="Nombre" ng-model="nombre" ng-class="{'campoIncompleto': formIncompleto}" ng-disabled="disableForm" />
+          <input type="text" placeholder="Apellido" ng-model="apellido" ng-class="{'campoIncompleto': formIncompleto}" ng-disabled="disableForm" />
+          <input type="text" placeholder="Password" ng-model="password" ng-class="{'campoIncompleto': formIncompleto}" ng-disabled="disableForm" />
+          <input type="text" placeholder="Email" ng-model="email" ng-class="{'campoIncompleto': formIncompleto}" ng-disabled="disableForm" />
+          <input type="text" placeholder="Número de legajo" ng-model="nroLegajo" ng-class="{'campoIncompleto': formIncompleto}" ng-disabled="disableForm" />
+          <input type="text" placeholder="Número de tarjeta" ng-model="nroTarjeta" ng-class="{'campoIncompleto': formIncompleto}" ng-disabled="disableForm" />
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-4 large-centered columns">
+        <ul class="button-group radius large-centered">
+          <li><a href="" ng-click="cancelar()" class="button" ng-hide="disableForm">Cancelar</a></li>
+          <li><a href="" ng-click="guardarAlumno()" class="button" ng-hide="disableForm">Guardar</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

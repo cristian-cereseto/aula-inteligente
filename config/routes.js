@@ -46,12 +46,7 @@ module.exports.routes = {
 
   '/menu-principal': {
     view: 'homepage'
-  },
-
-  '/asistencia': {
-    view: 'asistencia'
   }
-
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

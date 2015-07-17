@@ -19,13 +19,13 @@
     line-height: 58px;
     margin-bottom: 1.5em;
 }
- 
+
 /** Removes black background on menu bar **/
 .top-bar-section ul {
     background: #744044;
     text-transform: uppercase;
 }
- 
+
 /** Removes black background on menu item **/
 .top-bar-section li a:not(.button) {
     background: #744044;
@@ -40,3 +40,26 @@
 
 .icono-calefaccion {
 }
+
+.body-container {
+  padding: 30px;
+}
+
+.campoIncompleto {
+  border: 1px solid red!important;
+}
+
+.tabla-body tr:hover,
+.tabla-body .selected-row {
+  cursor: pointer;
+  background-color: #A6A6A6;
+}
+
+.tabla-gestion tbody:hover {
+  cursor: pointer;
+}
+
+.selected-row {
+  background-color: #A5A5A5;
+}
+

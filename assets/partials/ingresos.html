@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="large-6 large-centered columns">
+    <h3>Ingreso</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="large-6 large-centered columns">
+    <div class="panel radius">
+      <p class="bienvenido">Bienvenido!</p>
+      <form>
+        <div class="row collapse">
+          <div class="small-2  columns">
+            <span class="prefix"><i class="fi-torso-female"></i></span>
+          </div>
+          <div class="small-10  columns">
+            <input type="text" placeholder="usuario o email" required  data-ng-model="alumnoPresente">
+          </div>
+        </div>
+        <div class="row collapse">
+          <div class="small-2 columns ">
+            <span class="prefix"><i class="fi-lock"></i></span>
+          </div>
+          <div class="small-10 columns ">
+            <input type="password" placeholder="password" id="txtPassword" required data-ng-model="passwordAlumno">
+            <input type="hidden" id="_csrf" ng-model="token">
+          </div>
+          <button class="button radius right" ng-click="darPresente()">Ingresar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -30,11 +30,13 @@ var jsFilesToInject = [
   'js/dependencies/jquery.js',
   'js/dependencies/modernizr.js',
   'js/dependencies/foundation.min.js',
+  'js/dependencies/angular.js',
   'js/dependencies/**/*.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
-  //'js/**/*.js'
+  'js/public/aula-inteligente-module.js',
+  'js/**/*.js'
 ];
 
 
