@@ -38,6 +38,10 @@ aulaInteligenteModule.factory('alumnosServicios', ['$http', function ($http) {
         };
 
         return $http.post('/asistencia', asistencia);
+    },
+
+    leerTarjeta: function () {
+        return $http.get('/tagId');
     }
   };
 

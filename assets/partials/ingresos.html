@@ -24,6 +24,15 @@
             <input type="password" placeholder="password" id="txtPassword" required data-ng-model="passwordAlumno">
             <input type="hidden" id="_csrf" ng-model="token">
           </div>
+          <div class="row collapse">
+            <div class="small-2  columns">
+              <span class="prefix">Tarjeta NFC</span>
+            </div>
+            <div class="small-10  columns">
+              <input type="text" placeholder="tarjetaId" required  data-ng-model="tarjetaID">
+            </div>
+            <button class="button radius right" ng-click="leerTarjeta()">Obtener Id</button>
+          </div>
           <button class="button radius right" ng-click="darPresente()">Ingresar</button>
         </div>
       </form>

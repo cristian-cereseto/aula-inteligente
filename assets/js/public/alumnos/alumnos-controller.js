@@ -134,5 +134,9 @@ aulaInteligenteModule.controller('alumnosController', ['$scope', 'alumnosServici
         }
     };
 
+    $scope.leerTarjeta = function () {
+      alumnosServicios.leerTarjeta();
+    };
+
     $scope.init();
 }]);

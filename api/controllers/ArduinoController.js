@@ -6,6 +6,7 @@
  */
 
 var app = require('arest');
+
 module.exports = {
 
   getDevice: function (req, res) {
@@ -106,7 +107,7 @@ module.exports = {
 
   digitalRead: function (req, res) {
 
-// Digital read
+    // Digital read
     app.get('/:device/digital/:pin/', function (req, res) {
 
       console.log('Digital read request sent to device: ' + req.params.device);
