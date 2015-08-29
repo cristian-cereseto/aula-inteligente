@@ -11,9 +11,8 @@
 
 module.exports.bootstrap = function(cb) {
 
-
-
   var aRest = require('arest')(sails);
+  // Verificar la url y el puerto donde está conectado el Arduino
   aRest.addDevice('serial','/dev/ttyACM0', 115200);
 
   // It's very important to trigger this callback method when you are finished

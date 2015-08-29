@@ -39,6 +39,19 @@ module.exports = {
 
       password: {
           type: 'string'
+      },
+
+      isProfessor: {
+        type: 'boolean',
+        required: true
+      },
+
+      curso: {
+        model: 'curso'
+      },
+
+      acta: {
+        model: 'acta'
       }
   }
 };
