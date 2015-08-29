@@ -1,9 +1,9 @@
 aulaInteligenteModule.controller('tableroController', ['$scope', '$http', function ($scope, $http) {
     var URL_ROOT = 'http://localhost:1334/serial/digital/';
-    var PIN_LUZ_1 = '3/';
-    var PIN_LUZ_2 = '5/';
-    var PIN_CAL = '6/';
-    var PIN_AA = '9/';
+    var PIN_LUZ_1 = '5/';
+    var PIN_LUZ_2 = '6/';
+    var PIN_CAL = '7/';
+    var PIN_AA = '8/';
 
     $scope.toggleControlLuz1 = function (control) {
       var action = (control) ? 1 : 0;

@@ -364,7 +364,6 @@ module.exports = function (app) {
         });
 
       } else {
-        console.log('aca')
         // Get variable
         device.getVariable(req.params.command, function (error, response, body) {
           res.json(body);
@@ -444,7 +443,6 @@ module.exports = function (app) {
 
     console.log('Mode request sent to device: ' + 'Arduino');
 
-    console.log('aca', req.params);
     // Get device
     device = aREST.getDevice('Arduino');
     // Get variable

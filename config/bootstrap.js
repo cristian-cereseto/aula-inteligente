@@ -12,8 +12,24 @@
 module.exports.bootstrap = function(cb) {
 
   var aRest = require('arest')(sails);
+  var Promise = require('bluebird');
+
   // Verificar la url y el puerto donde está conectado el Arduino
-  aRest.addDevice('serial','/dev/ttyACM0', 115200);
+  aRest.addDevice('serial','/dev/ttyACM0', 115200, function () {
+
+    // Get device
+    device = aRest.getDevice('Arduino');
+
+    // Get variable
+    var configPin5 = Promise.promisifyAll(device.pinMode.bind(this, 5, 'o'));
+    var configPin6 = Promise.promisifyAll(device.pinMode.bind(this, 6, 'o'));
+    var configPin7 = Promise.promisifyAll(device.pinMode.bind(this, 7, 'o'));
+    var configPin8 = Promise.promisifyAll(device.pinMode.bind(this, 8, 'o'));
+
+    Promise.join(configPin5(), configPin6(), configPin7(), configPin8(), function () {
+      console.log('Entradas configuradas');
+    });
+  });
 
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
