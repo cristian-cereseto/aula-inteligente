@@ -41,7 +41,7 @@ aulaInteligenteModule.factory('alumnosServicios', ['$http', function ($http) {
     },
 
     leerTarjeta: function () {
-        return $http.get('/tagId');
+      return $http.get('/arduino/tagId');
     }
   };
 
