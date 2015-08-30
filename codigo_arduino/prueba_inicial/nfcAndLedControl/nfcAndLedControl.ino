@@ -23,8 +23,19 @@ PN532 nfc(PN532_CS);
 #define  NFC_DEMO_DEBUG 1
 
 // Variables to be exposed to the API
+int modoAuto;
 int tagId;
 boolean tagUnico = true;
+
+int pinLuz1;
+int pinLuz2;
+int pinCAL;
+int pinAA;
+
+int pinLDR;
+int valorLDR;
+int analogInPin;
+int sensorValue;        // value read from the pot
 
 void setup(void)
 {  
@@ -34,9 +45,22 @@ void setup(void)
   Serial.println("Aplicación iniciada!");
   
   // Init variables and expose them to REST API
+  modoAuto = 0;
+  tagId = 0;
+  int pinLuz1 = 5;
+  int pinLuz2 = 6;
+  int pinCAL = 7;
+  int pinAA = 8;
+  
+  analogInPin = A0;
+  sensorValue = 0;
+
+
+
   tagId = 0;
   #endif
-  rest.variable("tagId",&tagId); 
+  rest.variable("tagId",&tagId);
+  rest.variable("modoAuto", &modoAuto);
   
 //  uint32_t versiondata = nfc.getFirmwareVersion();
 //
@@ -46,7 +70,7 @@ void setup(void)
 //    }
 
   // Function to be exposed
-  //rest.function("led",ledControl);
+  rest.function("cambiarModo",cambiarModo);
   
   // Give name and ID to device
   rest.set_id("2");
@@ -80,18 +104,41 @@ void loop() {
         tagUnico = true;
       } 
   }
-  delay(1000);
-  
-  rest.handle(Serial);
+  delay(100);
+
+  if (modoAuto) {
+    //Guardamos el valor leido en una variable
+    sensorValue = analogRead(analogInPin);
+    
+    Serial.println(sensorValue);
+
+    if (sensorValue > 750) {
+       digitalWrite(pinLuz1,HIGH);
+       digitalWrite(pinLuz2,HIGH);
+    } else {
+      if (sensorValue <= 750 && sensorValue > 450) {
+       digitalWrite(pinLuz1, HIGH);   
+      } else {
+       digitalWrite(pinLuz1,LOW);
+       digitalWrite(pinLuz2,LOW);
+      }  
+    }
+    
+    delay(50);//wait
+    rest.handle(Serial);
+  } else {
+    rest.handle(Serial);
+  }
   wdt_reset();
 }
 
 // Custom function accessible by the API
-//int ledControl(String command) {
+int cambiarModo(String command) {
   
 // Get state from command
-// int state = command.toInt();
-  
-// digitalWrite(6,state);
-//  return 1;
-//}
+  int state = command.toInt();
+  Serial.print("state "+state);
+  modoAuto = state;
+  Serial.print("modoAuto "+modoAuto);
+  return 1;
+}
