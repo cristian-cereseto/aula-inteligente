@@ -43,7 +43,8 @@ void setup(void)
   // Start Serial
   Serial.begin(115200);
   Serial.println("Aplicación iniciada!");
-  
+
+    
   // Init variables and expose them to REST API
   modoAuto = 0;
   tagId = 0;
@@ -51,6 +52,11 @@ void setup(void)
   int pinLuz2 = 6;
   int pinCAL = 7;
   int pinAA = 8;
+
+//  pinMode(5, OUTPUT);
+//  pinMode(6, OUTPUT);
+//  pinMode(7, OUTPUT);
+//  pinMode(8, OUTPUT);
   
   analogInPin = A0;
   sensorValue = 0;
@@ -60,7 +66,7 @@ void setup(void)
   tagId = 0;
   #endif
   rest.variable("tagId",&tagId);
-  rest.variable("modoAuto", &modoAuto);
+//  rest.variable("modoAuto", &modoAuto);
   
 //  uint32_t versiondata = nfc.getFirmwareVersion();
 //
@@ -70,7 +76,8 @@ void setup(void)
 //    }
 
   // Function to be exposed
-  rest.function("cambiarModo",cambiarModo);
+  rest.function("modoManual", modoManual);
+  rest.function("modoAutomatico", modoAutomatico);
   
   // Give name and ID to device
   rest.set_id("2");
@@ -106,39 +113,54 @@ void loop() {
   }
   delay(100);
 
-  if (modoAuto) {
+  if (modoAuto == 1) {
     //Guardamos el valor leido en una variable
     sensorValue = analogRead(analogInPin);
     
     Serial.println(sensorValue);
 
     if (sensorValue > 750) {
-       digitalWrite(pinLuz1,HIGH);
-       digitalWrite(pinLuz2,HIGH);
+       digitalWrite(5,HIGH);
+       digitalWrite(6,HIGH);
     } else {
       if (sensorValue <= 750 && sensorValue > 450) {
-       digitalWrite(pinLuz1, HIGH);   
+       digitalWrite(5, HIGH);   
+       digitalWrite(6,LOW);
       } else {
-       digitalWrite(pinLuz1,LOW);
-       digitalWrite(pinLuz2,LOW);
+       digitalWrite(5,LOW);
+       digitalWrite(6,LOW);
       }  
     }
-    
-    delay(50);//wait
-    rest.handle(Serial);
-  } else {
-    rest.handle(Serial);
   }
+  
+  rest.handle(Serial);
   wdt_reset();
+  delay(50);
 }
 
 // Custom function accessible by the API
-int cambiarModo(String command) {
+int modoManual(String lalala) {
+   digitalWrite(5,LOW);
+   digitalWrite(6,LOW);
+   digitalWrite(7,LOW);
+   digitalWrite(8,LOW);
   
-// Get state from command
-  int state = command.toInt();
-  Serial.print("state "+state);
-  modoAuto = state;
-  Serial.print("modoAuto "+modoAuto);
+    modoAuto = 0;
+ 
+  Serial.print("cambiando modo manual");
+  Serial.print(modoAuto);
+  return 1;
+}
+
+int modoAutomatico(String lalala) {
+   digitalWrite(5,LOW);
+   digitalWrite(6,LOW);
+   digitalWrite(7,LOW);
+   digitalWrite(8,LOW);
+  
+  modoAuto = 1;
+  
+  Serial.print("cambiando modo auto");
+  Serial.print(modoAuto);
   return 1;
 }

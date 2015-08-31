@@ -15,7 +15,7 @@ module.exports.bootstrap = function(cb) {
   var Promise = require('bluebird');
 
   // Verificar la url y el puerto donde está conectado el Arduino
-  aRest.addDevice('serial','/dev/ttyACM0', 115200, function () {
+  aRest.addDevice('serial','/dev/ttyACM3', 115200, function () {
 
     // Get device
     device = aRest.getDevice('Arduino');

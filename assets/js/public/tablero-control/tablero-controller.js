@@ -1,6 +1,8 @@
 aulaInteligenteModule.controller('tableroController', ['$scope', '$http', function ($scope, $http) {
 
     var URL_ROOT = '/Arduino/digital/';
+    var MODO_AUTO = '/arduino/modoAutomatico?params=';
+    var MODO_MANUAL = '/arduino/modoManual?params=';
     var PIN_LUZ_1 = '5/';
     var PIN_LUZ_2 = '6/';
     var PIN_CAL = '7/';
@@ -37,6 +39,21 @@ aulaInteligenteModule.controller('tableroController', ['$scope', '$http', functi
       var action = (control) ? 1 : 0;
 
       $http.get(URL_ROOT + PIN_AA + action);
+      setTimeout(function () {
+        console.log('Enviando request al arduino');
+      }, 1000);
+    };
+
+    $scope.toggleModo = function (control) {
+      var MODO = (control) ? MODO_MANUAL : MODO_AUTO;
+
+      $http.get(MODO + '1');
+
+      $scope.control_luz_1 = 0;
+      $scope.control_luz_2 = 0;
+      $scope.control_cal = 0;
+      $scope.control_aa = 0;
+
       setTimeout(function () {
         console.log('Enviando request al arduino');
       }, 1000);

@@ -9,10 +9,11 @@
       </h5>
     </div>
       <div class="panel callout radius">
-        <label>Auto/Manual</label>
+        <label>Modo Manual</label>
 
         <div class="switch radius">
-          <input id="switchModo" type="checkbox" ng-model="modo">
+          <input id="switchModo" type="checkbox" class="checkboxControl" ng-model="control_auto"
+                 ng-click="toggleModo(control_auto)">
           <label for="switchModo"></label>
         </div>
       </div>
